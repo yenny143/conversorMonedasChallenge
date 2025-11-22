@@ -11,8 +11,7 @@ public class ConsultarMoneda {
     Scanner scanner = new Scanner(System.in);
     //vamos a crear nuestro constructor
 
-    public Moneda convertirMoneda(String monedaBase, String monedaConvertir)
-            throws IOException, InterruptedException {
+    public Moneda convertirMoneda(String monedaBase, String monedaConvertir){
         //https://v6.exchangerate-api.com/v6/TU_API_KEY/pair/USD/ARS
         String baseUrl="https://v6.exchangerate-api.com/v6/";
         String apiKey ="21e9a0901ca8da9342be8d05";
@@ -22,10 +21,10 @@ public class ConsultarMoneda {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(direccion)
                 .build();
-        HttpResponse<String> response = null;
+
 
         try {
-            response = client
+            HttpResponse<String> response = client
                     .send(request, HttpResponse.BodyHandlers.ofString());
             return new Gson().fromJson(response.body(), Moneda.class);
         } catch (Exception  e) {
@@ -34,7 +33,7 @@ public class ConsultarMoneda {
     }
 
     public void mostrarMenu() {
-        int opcion = -1;
+        int opcion;
 
         System.out.println("************************************************************");
         System.out.println("Sea bienvenido/a al Conversor de Moneda =]");
