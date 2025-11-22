@@ -1,0 +1,1 @@
+bien el conversor de monedas resulto ser un trabajo muy interesante pues te permitira seleccionar el tipo de moneda que quieres convertir y una moneda es mas permite al usuario poner la cantidad que desea convertir.
